@@ -1,0 +1,234 @@
+:root {
+  color: #1f2420;
+  background: #f3f0e9;
+  font-family: "DM Sans", "Noto Sans KR", sans-serif;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(213, 224, 193, 0.68), transparent 28rem),
+    radial-gradient(circle at 90% 82%, rgba(226, 203, 179, 0.45), transparent 26rem),
+    #f3f0e9;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+  content: "";
+  pointer-events: none;
+}
+
+main {
+  position: relative;
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 48px 24px;
+}
+
+.intro-card {
+  width: min(100%, 760px);
+  animation: enter 0.8s cubic-bezier(0.2, 0.75, 0.2, 1) both;
+}
+
+.portrait {
+  position: relative;
+  display: grid;
+  width: 72px;
+  height: 72px;
+  margin-bottom: 42px;
+  border: 1px solid rgba(31, 36, 32, 0.14);
+  border-radius: 50%;
+  background: #dbe5c7;
+  color: #36402f;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  place-items: center;
+}
+
+.status-dot {
+  position: absolute;
+  right: 2px;
+  bottom: 4px;
+  width: 14px;
+  height: 14px;
+  border: 3px solid #f3f0e9;
+  border-radius: 50%;
+  background: #679455;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 19px;
+  color: #6c756a;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.19em;
+}
+
+.line {
+  width: 34px;
+  height: 1px;
+  margin-right: 12px;
+  background: #6c756a;
+}
+
+h1 {
+  max-width: 690px;
+  margin: 0;
+  color: #222722;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: clamp(44px, 7vw, 80px);
+  font-weight: 600;
+  letter-spacing: -0.065em;
+  line-height: 1.13;
+}
+
+h1 em {
+  color: #56704a;
+  font-style: normal;
+}
+
+.description {
+  max-width: 600px;
+  margin: 33px 0 0;
+  color: #596058;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: clamp(16px, 2vw, 19px);
+  font-weight: 400;
+  line-height: 1.85;
+  word-break: keep-all;
+}
+
+.description strong {
+  color: #2c332d;
+  font-weight: 600;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 30px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tags li {
+  padding: 8px 13px;
+  border: 1px solid rgba(31, 36, 32, 0.15);
+  border-radius: 999px;
+  color: #596058;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-top: 42px;
+}
+
+.primary-button,
+.text-link {
+  text-decoration: none;
+}
+
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+  padding: 15px 18px 15px 20px;
+  border-radius: 2px;
+  background: #222722;
+  color: #f7f4ee;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.primary-button:hover {
+  background: #56704a;
+  transform: translateY(-2px);
+}
+
+.text-link {
+  color: #4b524b;
+  font-size: 13px;
+  font-weight: 500;
+  transition: color 180ms ease;
+}
+
+.text-link:hover {
+  color: #56704a;
+}
+
+.side-note {
+  position: absolute;
+  right: 30px;
+  bottom: 27px;
+  display: flex;
+  gap: 22px;
+  color: #858b83;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  main {
+    align-items: start;
+    padding: 42px 24px 80px;
+  }
+
+  .portrait {
+    margin-bottom: 52px;
+  }
+
+  .description {
+    margin-top: 25px;
+  }
+
+  .actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .side-note {
+    right: auto;
+    bottom: 24px;
+    left: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-card {
+    animation: none;
+  }
+}
+
